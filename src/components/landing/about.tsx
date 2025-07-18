@@ -22,7 +22,7 @@ export default function About() {
                         </CardHeader>
                         <CardContent className="space-y-4">
                             <div className="flex items-center gap-4"><User className="h-5 w-5 text-primary" /> <span><b>Age:</b> 30</span></div>
-                            <div className="flex items-center gap-4"><MapPin className="h-5 w-5 text-primary" /> <span><b>Location:</b> Gurugram</span></div>
+                            <div className="flex items-center gap-4"><MapPin className="h-5 w-5 text-primary" /> <span><b>Location:</b> Ghaziabad, UP India</span></div>
                             <div className="flex items-center gap-4"><Calendar className="h-5 w-5 text-primary" /> <span><b>D.O.B:</b> 26/07/1994</span></div>
                             <div className="flex items-center gap-4"><Heart className="h-5 w-5 text-primary" /> <span><b>Marital Status:</b> Married</span></div>
                             <div className="flex items-center gap-4"><Languages className="h-5 w-5 text-primary" /> <span><b>Languages:</b> English, Hindi</span></div>

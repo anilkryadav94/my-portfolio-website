@@ -11,10 +11,10 @@ import { Bot, Clipboard, ClipboardCheck, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const resumeTemplate = `Anil Kumar
-Gurugram, India
+Ghaziabad, UP India
 
 SUMMARY
-Analytical, organized and detail-oriented IP Specialist with over 7 years of experience in patent and trademark docketing, paralegal work, process improvement, and automation. Collaborative team player with an ownership mentality and a track record of delivering high-quality strategic solutions. Proficient in Python, Django, React, Next.js, and various AI tools.
+Detail-oriented IP Specialist with 7+ years of experience in patent and trademark docketing, paralegal work, and process automation. Proven ability to deliver high-quality strategic solutions by leveraging a unique combination of IP expertise and technical skills. Proficient in building tools and automating workflows using Python, Django, React, Next.js, SQL, and advanced Excel (VBA/Macros). Collaborative team player with a strong ownership mentality and experience using AI tools to enhance productivity.
 
 EXPERIENCE
 - Sr. IP Specialist, Anaqua Inc. (Current, 3+ years)
