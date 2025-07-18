@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Loader2, MessageSquareText } from "lucide-react";
+import { Loader2, Mail } from "lucide-react";
 import { useState } from "react";
 
 const contactSchema = z.object({
@@ -27,24 +27,27 @@ export default function ContactForm() {
         resolver: zodResolver(contactSchema)
     });
 
-    const myWhatsAppNumber = "7011553054";
+    const myEmail = "ayadav232@gmail.com";
 
     const onSubmit: SubmitHandler<ContactFormInputs> = async (data) => {
         setIsSubmitting(true);
         
-        const messageBody = `New message from your portfolio:\n\n*Name:* ${data.name}\n*Email:* ${data.email}\n\n*Message:*\n${data.message}`;
-        const encodedMessage = encodeURIComponent(messageBody);
-        const whatsappUrl = `https://wa.me/${myWhatsAppNumber}?text=${encodedMessage}`;
-
-        // Open WhatsApp in a new tab
-        window.open(whatsappUrl, '_blank');
+        const subject = encodeURIComponent(`New Portfolio Message from ${data.name}`);
+        const body = encodeURIComponent(
+          `You have a new message from your portfolio contact form:\n\nName: ${data.name}\nEmail: ${data.email}\n\nMessage:\n${data.message}`
+        );
         
-        // Simulate a short delay to allow the new tab to open
+        const mailtoUrl = `mailto:${myEmail}?subject=${subject}&body=${body}`;
+
+        // Open user's default email client
+        window.location.href = mailtoUrl;
+        
+        // Simulate a short delay
         await new Promise(resolve => setTimeout(resolve, 500));
 
         toast({
             title: "Ready to Send!",
-            description: "Your message is ready in WhatsApp. Just press send!",
+            description: "Your email client should be open with the message ready to send.",
         });
         
         reset();
@@ -59,7 +62,7 @@ export default function ContactForm() {
                 <Card>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <CardHeader>
-                            <CardTitle>Send a Message via WhatsApp</CardTitle>
+                            <CardTitle>Send me an Email</CardTitle>
                         </CardHeader>
                         <CardContent className="space-y-4">
                             <div className="space-y-2">
@@ -68,8 +71,8 @@ export default function ContactForm() {
                                 {errors.name && <p className="text-sm font-medium text-destructive">{errors.name.message}</p>}
                             </div>
                             <div className="space-y-2">
-                                <Label htmlFor="email">Email</Label>
-                                <Input id="email" type="email" {...register("email")} />
+                                <Label htmlFor="email">Your Email</Label>
+                                <Input id="email" type="email" {...register("email")} placeholder="So I can reply to you" />
                                 {errors.email && <p className="text-sm font-medium text-destructive">{errors.email.message}</p>}
                             </div>
                              <div className="space-y-2">
@@ -80,8 +83,8 @@ export default function ContactForm() {
                         </CardContent>
                         <CardFooter>
                             <Button type="submit" disabled={isSubmitting} className="bg-accent text-accent-foreground hover:bg-accent/90">
-                                {isSubmitting ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <MessageSquareText className="mr-2 h-4 w-4" />}
-                                {isSubmitting ? "Redirecting..." : "Send via WhatsApp"}
+                                {isSubmitting ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Mail className="mr-2 h-4 w-4" />}
+                                {isSubmitting ? "Preparing..." : "Send Email"}
                             </Button>
                         </CardFooter>
                     </form>
