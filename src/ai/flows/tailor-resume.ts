@@ -38,23 +38,35 @@ const prompt = ai.definePrompt({
   name: 'tailorResumePrompt',
   input: {schema: TailorResumeInputSchema},
   output: {schema: TailorResumeOutputSchema},
-  prompt: `You are an expert career coach and resume writer. Your task is to rewrite a professional summary for a resume to be highly tailored to a specific job description.
+  prompt: `You are an expert career coach and professional resume writer. Your primary task is to create a highly tailored Professional Summary or a concise Cover Letter for a candidate based on a specific job description.
 
-Analyze the provided Job Description to identify the key skills, qualifications, and keywords the employer is looking for.
+**CRITICAL INSTRUCTIONS:**
+1.  **Analyze the Job Description:** First, meticulously analyze the provided Job Description. Identify the top 3-5 most critical skills, qualifications, keywords, and experiences the employer is seeking.
+2.  **Review the Candidate's Resume:** Next, review the provided Resume to understand the candidate's background, skills, and accomplishments.
+3.  **Synthesize and Write a NEW Summary/Letter:** Your main goal is to write a **NEW, completely tailored professional summary or a short cover letter (3-4 paragraphs)**. This new content must:
+    *   Directly address the key requirements you identified from the job description.
+    *   Strategically highlight the candidate's most relevant skills and experiences from their resume.
+    *   Use the keywords from the job description naturally.
+    *   Be written in a compelling, professional, and confident tone from the candidate's perspective.
+4.  **DO NOT simply rephrase or slightly modify the summary already present in the resume.** You must generate new, unique content that creates a strong connection between the candidate and the specific job role.
 
-Then, review the provided Resume.
+**Input:**
 
-Based on your analysis, rewrite the 'SUMMARY' section of the resume. The new summary should be a concise, powerful paragraph that directly addresses the requirements from the job description, using the candidate's existing skills and experience. It must be written from the candidate's perspective.
-
-Return *only* the rewritten summary as the tailoredContent. Do not include the rest of the resume.
-
-Job Description:
+**Job Description:**
+\`\`\`
 {{{jobDescription}}}
+\`\`\`
 
 ---
 
-Resume:
+**Candidate's Resume:**
+\`\`\`
 {{{resume}}}
+\`\`\`
+
+**Output:**
+
+Return *only* the newly written, tailored content in the 'tailoredContent' field. Do not include any other text, explanations, or the rest of the resume.
   `,
 });
 
