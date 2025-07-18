@@ -12,7 +12,7 @@ export default function Header() {
     { href: "#about", label: "About" },
     { href: "#skills", label: "Skills" },
     { href: "#experience", label: "Experience" },
-    { href: "#resume-tailor", label: "Resume Tailor" },
+    { href: "#resume-tailor", label: "AI Resume Tailor" },
     { href: "#contact", label: "Contact" },
   ];
 
