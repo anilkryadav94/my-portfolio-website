@@ -35,7 +35,21 @@ const clarivateAchievements = [
     "Zero Escalation from Client while doing Processing and QC.",
     "Effectively and efficiently migrated the data from the IP Manager tool to Anaqua with collaboration from each team member and Client participation.",
     "Managing the workload in Pandemic along with migration and project works.",
-    "Received Quarterly and on spot awards for my contribution in Automation and team/process",
+    "Received Quarterly and on spot awards for my contribution in Automation and team/process handling.",
+];
+
+const wiproResponsibilities = [
+    "Responsible for adhering to team SLA on timeliness and accuracy, processing daily tasks, and ensuring proper workload distribution.",
+    "Managing a wide array of payroll solutions like – Oncycle Process, Offcycle Process, Additional pay set up, Retro payments, Underpayments process, Termination process, etc.",
+    "Reporting and Work allocation",
+    "Works as an Auditor.",
+    "Deal with specific client request",
+    "Conduct and share trainings plan for the new hires.Assisted with payroll and Pensions service management for 150+ employees. Prepared invoices for more than 200 clients."
+];
+
+const wiproAchievements = [
+    "Created a few tools using excel Macros. Reporting Tool, Retirement Macro and a few more.",
+    "Received best new Colleague award and Shimmer award in last quarter of 2018."
 ];
 
 
@@ -112,6 +126,20 @@ export default function Experience() {
                                     <CardTitle>Payroll Processor</CardTitle>
                                     <CardDescription>Wipro Ltd. | Dec 2016 – June 2019 (2 years 6 months)</CardDescription>
                                 </CardHeader>
+                                <CardContent>
+                                    <h4 className="mb-2 font-semibold">Key Responsibilities:</h4>
+                                    <ul className="space-y-2 text-sm text-muted-foreground">
+                                        {wiproResponsibilities.map((item, index) => (
+                                            <li key={index} className="flex gap-2"><CheckCircle className="mt-1 h-4 w-4 flex-shrink-0 text-primary" /><span>{item}</span></li>
+                                        ))}
+                                    </ul>
+                                    <h4 className="mb-2 mt-4 font-semibold">Achievements:</h4>
+                                     <ul className="space-y-2 text-sm text-muted-foreground">
+                                        {wiproAchievements.map((item, index) => (
+                                            <li key={index} className="flex gap-2"><CheckCircle className="mt-1 h-4 w-4 flex-shrink-0 text-primary" /><span>{item}</span></li>
+                                        ))}
+                                    </ul>
+                                </CardContent>
                             </Card>
                         </div>
                     </div>
