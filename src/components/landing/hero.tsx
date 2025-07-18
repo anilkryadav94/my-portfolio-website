@@ -25,7 +25,7 @@ export default function Hero() {
       </div>
       <div className="relative h-64 w-64 flex-shrink-0 md:h-80 md:w-80">
         <Image
-          src="https://placehold.co/400x400.png"
+          src="https://images.unsplash.com/photo-1629752174362-b1353139364b?q=80&w=400&h=400&fit=crop"
           alt="Anil Kumar"
           fill
           className="rounded-full object-cover shadow-2xl"
