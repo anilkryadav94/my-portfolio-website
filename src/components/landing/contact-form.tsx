@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Loader2, Mail } from "lucide-react";
+import { Loader2 } from "lucide-react";
 import { useState } from "react";
 
 const contactSchema = z.object({
@@ -20,6 +20,23 @@ const contactSchema = z.object({
 
 type ContactFormInputs = z.infer<typeof contactSchema>;
 
+const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+    </svg>
+);
+
 export default function ContactForm() {
     const { toast } = useToast();
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -27,27 +44,26 @@ export default function ContactForm() {
         resolver: zodResolver(contactSchema)
     });
 
-    const myEmail = "ayadav232@gmail.com";
+    const myWhatsApp = "7011553054";
 
     const onSubmit: SubmitHandler<ContactFormInputs> = async (data) => {
         setIsSubmitting(true);
         
-        const subject = encodeURIComponent(`New Portfolio Message from ${data.name}`);
-        const body = encodeURIComponent(
-          `You have a new message from your portfolio contact form:\n\nName: ${data.name}\nEmail: ${data.email}\n\nMessage:\n${data.message}`
+        const messageBody = encodeURIComponent(
+          `Hi Anil,\n\nI got your number from your portfolio website.\n\nName: ${data.name}\nEmail: ${data.email}\n\nMessage:\n${data.message}`
         );
         
-        const mailtoUrl = `mailto:${myEmail}?subject=${subject}&body=${body}`;
+        const whatsappUrl = `https://wa.me/${myWhatsApp}?text=${messageBody}`;
 
-        // Open user's default email client
-        window.location.href = mailtoUrl;
+        // Open user's WhatsApp
+        window.location.href = whatsappUrl;
         
-        // Simulate a short delay
+        // Simulate a short delay to allow WhatsApp to open
         await new Promise(resolve => setTimeout(resolve, 500));
 
         toast({
-            title: "Ready to Send!",
-            description: "Your email client should be open with the message ready to send.",
+            title: "Redirecting to WhatsApp!",
+            description: "Your message is ready to be sent.",
         });
         
         reset();
@@ -62,7 +78,7 @@ export default function ContactForm() {
                 <Card>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <CardHeader>
-                            <CardTitle>Send me an Email</CardTitle>
+                            <CardTitle>Send me a WhatsApp Message</CardTitle>
                         </CardHeader>
                         <CardContent className="space-y-4">
                             <div className="space-y-2">
@@ -83,8 +99,8 @@ export default function ContactForm() {
                         </CardContent>
                         <CardFooter>
                             <Button type="submit" disabled={isSubmitting} className="bg-accent text-accent-foreground hover:bg-accent/90">
-                                {isSubmitting ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Mail className="mr-2 h-4 w-4" />}
-                                {isSubmitting ? "Preparing..." : "Send Email"}
+                                {isSubmitting ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <WhatsAppIcon className="mr-2 h-4 w-4" />}
+                                {isSubmitting ? "Redirecting..." : "Send via WhatsApp"}
                             </Button>
                         </CardFooter>
                     </form>
