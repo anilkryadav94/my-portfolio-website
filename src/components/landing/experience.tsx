@@ -20,6 +20,24 @@ const automationInnovations = [
     "Filing Order letter preparation using Mail Merge and Macros"
 ];
 
+const clarivateResponsibilities = [
+    "Responsible for handling daily Work Allocation, Audits & Reconciliation, Processing, Quality Check and handling Processor’s queries and doubts.",
+    "Multiple Process handling like Patent Docketing, Annuity, Filings and Trademarks.",
+    "In Patent Docketing, I’m doing QC for last two years and I also do processing when situation demands.",
+    "Handling Annuity Processing/QC, maintaining Annuity Chaser spreadsheet and related reports.",
+    "Filings: Creation of PCT Packages and Order Letters preparation for Foreign Filings. Handling filing decision emails, decision tracking in filing spreadsheet and taking follow-ups.",
+    "In Trademarks Docketing, I pitch in processing part only when situation arises.",
+    "I’m responsible for running Scheduled Reports (Weekly/Semi-Monthly/Monthly) in Patent, Annuity and Filings for Audit purposes.",
+    "Handling Team/Process in absence of Supervisor.",
+];
+
+const clarivateAchievements = [
+    "Zero Escalation from Client while doing Processing and QC.",
+    "Effectively and efficiently migrated the data from the IP Manager tool to Anaqua with collaboration from each team member and Client participation.",
+    "Managing the workload in Pandemic along with migration and project works.",
+    "Received Quarterly and on spot awards for my contribution in Automation and team/process",
+];
+
 
 export default function Experience() {
     return (
@@ -66,6 +84,20 @@ export default function Experience() {
                                     <CardTitle>Sr. IP Analyst</CardTitle>
                                     <CardDescription>Clarivate | June 2019 – May 2022 (2 years 9 months)</CardDescription>
                                 </CardHeader>
+                                <CardContent>
+                                    <h4 className="mb-2 font-semibold">Key Responsibilities:</h4>
+                                    <ul className="space-y-2 text-sm text-muted-foreground">
+                                        {clarivateResponsibilities.map((item, index) => (
+                                            <li key={index} className="flex gap-2"><CheckCircle className="mt-1 h-4 w-4 flex-shrink-0 text-primary" /><span>{item}</span></li>
+                                        ))}
+                                    </ul>
+                                    <h4 className="mb-2 mt-4 font-semibold">Achievements:</h4>
+                                     <ul className="space-y-2 text-sm text-muted-foreground">
+                                        {clarivateAchievements.map((item, index) => (
+                                            <li key={index} className="flex gap-2"><CheckCircle className="mt-1 h-4 w-4 flex-shrink-0 text-primary" /><span>{item}</span></li>
+                                        ))}
+                                    </ul>
+                                </CardContent>
                             </Card>
                         </div>
                     </div>
