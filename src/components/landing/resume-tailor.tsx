@@ -1,7 +1,7 @@
 "use client";
 
-import { useFormState, useFormStatus } from "react-dom";
-import { useEffect, useRef, useState } from "react";
+import { useActionState, useEffect, useRef, useState } from "react";
+import { useFormStatus } from "react-dom";
 import { generateTailoredResume, type State } from "@/app/actions";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -22,7 +22,7 @@ function SubmitButton() {
 
 export default function ResumeTailor() {
     const initialState: State = { message: null, errors: {} };
-    const [state, dispatch] = useFormState(generateTailoredResume, initialState);
+    const [state, dispatch] = useActionState(generateTailoredResume, initialState);
     const [copied, setCopied] = useState(false);
     const { toast } = useToast();
     const resultRef = useRef<HTMLDivElement>(null);
