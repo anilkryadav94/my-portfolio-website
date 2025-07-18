@@ -7,13 +7,21 @@ import ResumeTailor from '@/components/landing/resume-tailor';
 import ContactForm from '@/components/landing/contact-form';
 import Footer from '@/components/landing/footer';
 
-export default function Home() {
+export default function Home({
+  searchParams,
+}: {
+  searchParams?: { [key: string]: string | string[] | undefined };
+}) {
+  const editMode = searchParams?.edit === 'true';
+
   return (
     <div className="flex min-h-screen flex-col bg-background">
-      <div className="px-2.5">
+      <div className="px-10">
         <Header />
+      </div>
+      <div className="px-2.5">
         <main className="flex-1">
-          <Hero />
+          <Hero editMode={editMode} />
           <About />
           <Skills />
           <Experience />
