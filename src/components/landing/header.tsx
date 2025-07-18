@@ -52,9 +52,9 @@ export default function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent side="left">
-               <SheetHeader className="sr-only">
-                  <SheetTitle>Mobile Menu</SheetTitle>
-                  <SheetDescription>
+               <SheetHeader className="text-left">
+                  <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
+                  <SheetDescription className="sr-only">
                     Navigation links for Anil Kumar's portfolio.
                   </SheetDescription>
                 </SheetHeader>
