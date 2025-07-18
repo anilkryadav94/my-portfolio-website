@@ -38,15 +38,23 @@ const prompt = ai.definePrompt({
   name: 'tailorResumePrompt',
   input: {schema: TailorResumeInputSchema},
   output: {schema: TailorResumeOutputSchema},
-  prompt: `You are an expert resume and cover letter writer.
+  prompt: `You are an expert career coach and resume writer. Your task is to rewrite a professional summary for a resume to be highly tailored to a specific job description.
 
-  Given the job description and resume provided, generate a tailored cover letter or summary of qualifications highlighting the skills and experience most relevant to the specific job.
+Analyze the provided Job Description to identify the key skills, qualifications, and keywords the employer is looking for.
 
-  Job Description: {{{jobDescription}}}
+Then, review the provided Resume.
 
-  Resume: {{{resume}}}
+Based on your analysis, rewrite the 'SUMMARY' section of the resume. The new summary should be a concise, powerful paragraph that directly addresses the requirements from the job description, using the candidate's existing skills and experience. It must be written from the candidate's perspective.
 
-  Existing Cover Letter (if any): {{{existingCoverLetter}}}
+Return *only* the rewritten summary as the tailoredContent. Do not include the rest of the resume.
+
+Job Description:
+{{{jobDescription}}}
+
+---
+
+Resume:
+{{{resume}}}
   `,
 });
 
