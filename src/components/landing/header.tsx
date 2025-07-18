@@ -35,7 +35,7 @@ export default function Header() {
             </Button>
           ))}
            <Button asChild className="ml-2">
-              <a href="/Anil_Kumar_Resume.pdf" download="Anil_Kumar_Resume.pdf">
+              <a href="/Anil_Kumar_Resume.docx" download="Anil_Kumar_Resume.docx">
                 <Download className="mr-2 h-4 w-4" />
                 Download Resume
               </a>
@@ -62,7 +62,7 @@ export default function Header() {
                   </a>
                 ))}
                 <Button asChild className="mt-4">
-                  <a href="/Anil_Kumar_Resume.pdf" download="Anil_Kumar_Resume.pdf">
+                  <a href="/Anil_Kumar_Resume.docx" download="Anil_Kumar_Resume.docx">
                     <Download className="mr-2 h-4 w-4" />
                     Download Resume
                   </a>
