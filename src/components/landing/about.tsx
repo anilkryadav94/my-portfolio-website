@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { User, MapPin, Calendar, BookOpen, GraduationCap, Heart, Languages } from 'lucide-react';
+import { User, MapPin, Calendar, BookOpen, GraduationCap, Heart, Languages, Flag, Puzzle } from 'lucide-react';
 
 export default function About() {
     return (
@@ -23,11 +23,12 @@ export default function About() {
                             <CardTitle>Personal Details</CardTitle>
                         </CardHeader>
                         <CardContent className="space-y-4">
-                            <div className="flex items-center gap-4"><User className="h-5 w-5 text-primary" /> <span><b>Age:</b> 30</span></div>
                             <div className="flex items-center gap-4"><MapPin className="h-5 w-5 text-primary" /> <span><b>Location:</b> Ghaziabad, UP India</span></div>
                             <div className="flex items-center gap-4"><Calendar className="h-5 w-5 text-primary" /> <span><b>D.O.B:</b> 26/07/1994</span></div>
                             <div className="flex items-center gap-4"><Heart className="h-5 w-5 text-primary" /> <span><b>Marital Status:</b> Married</span></div>
                             <div className="flex items-center gap-4"><Languages className="h-5 w-5 text-primary" /> <span><b>Languages:</b> English, Hindi</span></div>
+                            <div className="flex items-center gap-4"><Flag className="h-5 w-5 text-primary" /> <span><b>Nationality:</b> Indian</span></div>
+                            <div className="flex items-center gap-4"><Puzzle className="h-5 w-5 text-primary" /> <span><b>Hobbies:</b> Cricket, Music, Coding</span></div>
                         </CardContent>
                     </Card>
                      <Card className="md:col-span-3">
