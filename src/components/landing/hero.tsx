@@ -24,7 +24,7 @@ const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 export default function Hero() {
   return (
-    <section id="hero" className="container mx-auto flex flex-col-reverse items-center justify-between gap-12 px-4 py-20 md:flex-row md:py-32">
+    <section id="hero" className="container mx-auto flex flex-col-reverse items-center justify-between gap-12 px-4 py-10 md:flex-row md:py-16">
       <div className="max-w-3xl text-center md:text-left">
         <h1 className="font-headline text-4xl font-bold tracking-tight text-primary sm:text-5xl md:text-6xl">
           Anil Kumar
