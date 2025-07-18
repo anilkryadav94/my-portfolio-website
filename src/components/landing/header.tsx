@@ -21,12 +21,12 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 max-w-screen-2xl items-center justify-between">
-        <a href="#" className="mr-4 font-headline text-lg font-bold text-primary">
+        <a href="#" className="ml-4 font-headline text-lg font-bold text-primary">
           Anil's Portfolio
         </a>
         
         {/* Desktop Navigation */}
-        <nav className="hidden items-center space-x-2 md:flex">
+        <nav className="mr-4 hidden items-center space-x-2 md:flex">
           {navLinks.map((link) => (
             <Button key={link.href} variant="link" asChild>
               <a href={link.href} className="text-foreground/80 transition-colors hover:text-foreground">
@@ -35,7 +35,7 @@ export default function Header() {
             </Button>
           ))}
            <Button asChild className="ml-2">
-              <a href="/Anil_Kumar_Resume.pdf" download>
+              <a href="/Anil_Kumar_Resume.pdf" download="Anil_Kumar_Resume.pdf">
                 <Download className="mr-2 h-4 w-4" />
                 Download Resume
               </a>
@@ -62,7 +62,7 @@ export default function Header() {
                   </a>
                 ))}
                 <Button asChild className="mt-4">
-                  <a href="/Anil_Kumar_Resume.pdf" download>
+                  <a href="/Anil_Kumar_Resume.pdf" download="Anil_Kumar_Resume.pdf">
                     <Download className="mr-2 h-4 w-4" />
                     Download Resume
                   </a>
