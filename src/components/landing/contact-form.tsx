@@ -50,7 +50,7 @@ export default function ContactForm() {
         setIsSubmitting(true);
         
         const messageBody = encodeURIComponent(
-          `Hi Anil,\n\nI got your number from your portfolio website.\n\nName: ${data.name}\nEmail: ${data.email}\n\nMessage:\n${data.message}`
+          `Hi Anil,\n\nI got your number from your portfolio website.\n\nMessage:\n${data.message}\n\nThanks,\nName: ${data.name}\nEmail: ${data.email}`
         );
         
         const whatsappUrl = `https://wa.me/${myWhatsApp}?text=${messageBody}`;
