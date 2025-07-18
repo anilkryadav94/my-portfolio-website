@@ -2,29 +2,10 @@
 
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { ArrowDown, Pencil } from 'lucide-react';
-import { useEffect, useState } from 'react';
-import { EditImageDialog } from './edit-image-dialog';
+import { ArrowDown } from 'lucide-react';
 
-const DEFAULT_IMAGE_URL = "/profile.jpg";
-const IMAGE_STORAGE_KEY = "heroImageUrl";
-
-export default function Hero({ editMode }: { editMode: boolean }) {
-  const [imageUrl, setImageUrl] = useState(DEFAULT_IMAGE_URL);
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-
-  useEffect(() => {
-    const storedUrl = localStorage.getItem(IMAGE_STORAGE_KEY);
-    if (storedUrl) {
-      setImageUrl(storedUrl);
-    }
-  }, []);
-
-  const handleImageSave = (newUrl: string) => {
-    setImageUrl(newUrl);
-    localStorage.setItem(IMAGE_STORAGE_KEY, newUrl);
-    setIsDialogOpen(false);
-  };
+export default function Hero() {
+  const imageUrl = "/profile.jpg";
   
   return (
     <section id="hero" className="container mx-auto flex flex-col-reverse items-center justify-between gap-12 px-4 py-20 md:flex-row md:py-32">
@@ -33,12 +14,13 @@ export default function Hero({ editMode }: { editMode: boolean }) {
           Anil Kumar
         </h1>
         <p className="mt-6 text-lg leading-8 text-foreground/80">
-          Analytical, organized and detail-oriented IP Specialist with expertise in patent and trademark docketing, paralegal work, process improvement, and automation.
-        </p>
-        <div className="mt-10 flex items-center justify-center gap-x-6 md:justify-start">
-          <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
-            <a href="#contact">Contact Me</a>
-          </Button>
+          IP Professional | Data and Automation Enthusiast | Python, Django, SQL, JS, React, HTML, CSS, MS Power platform | Lifelong Learner
+          </p><br></br><p>Built this responsive web page using Firebase Studio, Google’s AI-driven development environment, showcasing my ability to leverage AI tools for efficient full stack development and Firebase integration. 
+          </p><br></br><p>
+          <strong>My IP Expertise:</strong>  Analytical, organized and detail-oriented IP Specialist with expertise in patent and trademark docketing, paralegal work, process improvement, and automation.
+        </p><br></br>
+        <div className="mt-5 flex items-center justify-center gap-x-6 md:justify-start">
+         
           <Button asChild variant="link" size="lg">
             <a href="#about" className="text-foreground">
               Learn More <ArrowDown className="ml-2 h-4 w-4" />
@@ -55,26 +37,6 @@ export default function Hero({ editMode }: { editMode: boolean }) {
           data-ai-hint="professional headshot"
           key={imageUrl} 
         />
-        {editMode && (
-          <>
-            <div className="absolute inset-0 rounded-full bg-black/50 opacity-0 transition-opacity group-hover:opacity-100" />
-            <Button
-              variant="outline"
-              size="icon"
-              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100"
-              onClick={() => setIsDialogOpen(true)}
-            >
-              <Pencil className="h-5 w-5" />
-              <span className="sr-only">Edit Image</span>
-            </Button>
-            <EditImageDialog
-              isOpen={isDialogOpen}
-              onClose={() => setIsDialogOpen(false)}
-              onSave={handleImageSave}
-              currentImageUrl={imageUrl}
-            />
-          </>
-        )}
       </div>
     </section>
   );
