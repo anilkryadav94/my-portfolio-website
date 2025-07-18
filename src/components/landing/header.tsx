@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Download, Menu } from "lucide-react";
 
 export default function Header() {
@@ -52,6 +52,12 @@ export default function Header() {
               </Button>
             </SheetTrigger>
             <SheetContent side="left">
+               <SheetHeader className="sr-only">
+                  <SheetTitle>Mobile Menu</SheetTitle>
+                  <SheetDescription>
+                    Navigation links for Anil Kumar's portfolio.
+                  </SheetDescription>
+                </SheetHeader>
               <div className="flex flex-col gap-y-4 pt-6">
                 <a href="#" onClick={closeMenu} className="mb-4 font-headline text-lg font-bold text-primary">
                   Anil's Portfolio
