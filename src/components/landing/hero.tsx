@@ -5,8 +5,6 @@ import { Button } from '@/components/ui/button';
 import { ArrowDown } from 'lucide-react';
 
 export default function Hero() {
-  const imageUrl = "https://placehold.co/400x400.png";
-  
   return (
     <section id="hero" className="container mx-auto flex flex-col-reverse items-center justify-between gap-12 px-4 py-20 md:flex-row md:py-32">
       <div className="max-w-3xl text-center md:text-left">
@@ -30,7 +28,7 @@ export default function Hero() {
       </div>
       <div className="group relative h-64 w-64 flex-shrink-0 md:h-80 md:w-80">
         <Image
-          src={imageUrl}
+          src="/profile.jpg"
           alt="Anil Kumar"
           fill
           className="rounded-full object-cover shadow-2xl"
