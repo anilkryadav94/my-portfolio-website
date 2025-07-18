@@ -10,23 +10,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Bot, Clipboard, ClipboardCheck, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
-const resumeTemplate = `Anil Kumar
-Ghaziabad, UP India
-
-SUMMARY
-Detail-oriented IP Specialist with 7+ years of experience in patent and trademark docketing, paralegal work, and process automation. Proven ability to deliver high-quality strategic solutions by leveraging a unique combination of IP expertise and technical skills. Proficient in building tools and automating workflows using Python, Django, React, Next.js, SQL, and advanced Excel (VBA/Macros). Collaborative team player with a strong ownership mentality and experience using AI tools to enhance productivity.
-
-EXPERIENCE
-- Sr. IP Specialist, Anaqua Inc. (Current, 3+ years)
-- Sr. IP Analyst, Clarivate (2 years 9 months)
-- Payroll Processor, Wipro Ltd. (2 years 6 months)
-
-SKILLS
-- Technical: Python, Django, React, Next.js, SQL Basics, Advance Excel (VBA, Macros), MS Access (Database, Forms)
-- IP Specific: Intellectual Property Law, Patent & TM Docketing, Quality Control, Audits, Annuity & Abandonment Processing
-- Other: Process Automation, AI Tools (ChatGPT), MIS Reporting
-`;
-
 function SubmitButton() {
   const { pending } = useFormStatus();
   return (
@@ -77,18 +60,13 @@ export default function ResumeTailor() {
             <form action={dispatch}>
                 <CardHeader>
                     <CardTitle>Generator</CardTitle>
-                    <CardDescription>Provide a job description and my resume to get started.</CardDescription>
+                    <CardDescription>Provide a job description to get started.</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
                     <div className="grid w-full gap-2">
                         <Label htmlFor="jobDescription">Job Description</Label>
                         <Textarea id="jobDescription" name="jobDescription" placeholder="Paste the full job description here..." rows={10} required/>
                         {state.errors?.jobDescription && <p className="text-sm font-medium text-destructive">{state.errors.jobDescription[0]}</p>}
-                    </div>
-                     <div className="grid w-full gap-2">
-                        <Label htmlFor="resume">My Resume</Label>
-                        <Textarea id="resume" name="resume" defaultValue={resumeTemplate} rows={15} required/>
-                        {state.errors?.resume && <p className="text-sm font-medium text-destructive">{state.errors.resume[0]}</p>}
                     </div>
                 </CardContent>
                 <CardFooter>

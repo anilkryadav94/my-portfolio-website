@@ -11,17 +11,27 @@
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
 
+const resume = `Anil Kumar
+Ghaziabad, UP India
+
+SUMMARY
+Detail-oriented IP Specialist with 7+ years of experience in patent and trademark docketing, paralegal work, and process automation. Proven ability to deliver high-quality strategic solutions by leveraging a unique combination of IP expertise and technical skills. Proficient in building tools and automating workflows using Python, Django, React, Next.js, SQL, and advanced Excel (VBA/Macros). Collaborative team player with a strong ownership mentality and experience using AI tools to enhance productivity.
+
+EXPERIENCE
+- Sr. IP Specialist, Anaqua Inc. (Current, 3+ years)
+- Sr. IP Analyst, Clarivate (2 years 9 months)
+- Payroll Processor, Wipro Ltd. (2 years 6 months)
+
+SKILLS
+- Technical: Python, Django, React, Next.js, SQL Basics, Advance Excel (VBA, Macros), MS Access (Database, Forms)
+- IP Specific: Intellectual Property Law, Patent & TM Docketing, Quality Control, Audits, Annuity & Abandonment Processing
+- Other: Process Automation, AI Tools (ChatGPT), MIS Reporting
+`;
+
 const TailorResumeInputSchema = z.object({
   jobDescription: z
     .string()
     .describe('The job description to tailor the resume to.'),
-  resume: z.string().describe('The user provided resume text.'),
-  existingCoverLetter: z
-    .string()
-    .optional()
-    .describe(
-      'The existing cover letter if there is one, to be improved upon.'
-    ),
 });
 export type TailorResumeInput = z.infer<typeof TailorResumeInputSchema>;
 
@@ -36,7 +46,7 @@ export async function tailorResume(input: TailorResumeInput): Promise<TailorResu
 
 const prompt = ai.definePrompt({
   name: 'tailorResumePrompt',
-  input: {schema: TailorResumeInputSchema},
+  input: {schema: z.object({jobDescription: z.string(), resume: z.string()})},
   output: {schema: TailorResumeOutputSchema},
   prompt: `You are an expert career coach and professional resume writer. Your primary task is to create a highly tailored Professional Summary or a concise Cover Letter for a candidate based on a specific job description.
 
@@ -77,7 +87,7 @@ const tailorResumeFlow = ai.defineFlow(
     outputSchema: TailorResumeOutputSchema,
   },
   async input => {
-    const {output} = await prompt(input);
+    const {output} = await prompt({...input, resume});
     return output!;
   }
 );

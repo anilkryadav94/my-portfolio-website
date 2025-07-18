@@ -5,14 +5,12 @@ import { z } from "zod";
 
 const TailorResumeActionSchema = z.object({
   jobDescription: z.string({ required_error: "Job description is required." }).min(50, "Please provide a more detailed job description (min 50 chars)."),
-  resume: z.string({ required_error: "Resume content is required." }).min(100, "Please provide your full resume content (min 100 chars)."),
 });
 
 export type State = {
   message?: string | null;
   errors?: {
     jobDescription?: string[];
-    resume?: string[];
   };
   tailoredContent?: string | null;
 };
@@ -23,7 +21,6 @@ export async function generateTailoredResume(
 ): Promise<State> {
   const validatedFields = TailorResumeActionSchema.safeParse({
     jobDescription: formData.get("jobDescription"),
-    resume: formData.get("resume"),
   });
 
   if (!validatedFields.success) {
@@ -36,7 +33,7 @@ export async function generateTailoredResume(
   try {
     const result = await tailorResume(validatedFields.data);
     return {
-      message: "Successfully generated your tailored resume!",
+      message: "Successfully generated your tailored content!",
       tailoredContent: result.tailoredContent,
     };
   } catch (error: any) {
