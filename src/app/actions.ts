@@ -39,8 +39,14 @@ export async function generateTailoredResume(
       message: "Successfully generated your tailored resume!",
       tailoredContent: result.tailoredContent,
     };
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error tailoring resume:", error);
+    // Check for a specific error message related to the API key.
+    if (error.message && error.message.includes('API key not valid')) {
+        return {
+            message: "AI Error: The Google AI API key is missing or invalid. Please add your GOOGLE_API_KEY to the .env file.",
+        }
+    }
     return {
       message: "An unexpected error occurred. Please try again later.",
     };
