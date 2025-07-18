@@ -6,7 +6,7 @@ import { ArrowDown, Pencil } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { EditImageDialog } from './edit-image-dialog';
 
-const DEFAULT_IMAGE_URL = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&h=400&fit=crop";
+const DEFAULT_IMAGE_URL = "/profile.jpg";
 const IMAGE_STORAGE_KEY = "heroImageUrl";
 
 export default function Hero({ editMode }: { editMode: boolean }) {
