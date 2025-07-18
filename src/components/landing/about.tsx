@@ -12,8 +12,10 @@ export default function About() {
                             <CardTitle>Bio</CardTitle>
                         </CardHeader>
                         <CardContent className="space-y-4 text-foreground/90">
-                            <p>Analytical, organized and detail-oriented IP Specialist expertise and experience in the full spectrum of patent and trademark docketing and paralegal work.</p>
-                            <p>Collaborative team player with ownership mentality and a track record of delivering the highest quality strategic solutions to resolve challenges and propel business growth. Also, having expertise in process improvement, automations, and use of AI tools (ChatGPT) in daily work.</p>
+                            <p>Analytical and detail-oriented IP Specialist with extensive experience in patent and trademark docketing, paralegal operations, and IP quality assurance. With over 5 years of specialized IP experience, I excel in managing complex workflows, ensuring compliance, and delivering strategic IP support to global stakeholders.</p>
+                            <p>Known for my ownership mindset, collaborative approach, and track record of driving efficiency through process optimization and automation.</p>
+                            <p>I actively leverage technology to enhance operational impact—using modern tools like ChatGPT, Grok, GitHub Copilot, Firebase, Gemini, ElevenLabs, and others for task automation, research, and productivity.</p>
+                            <p>Skilled in Excel, Access, VBA, and exploring Power Platform (Power Apps, Power Automate, Power BI, Dataverse) and Django (Python) to build scalable, intelligent solutions that bridge IP with tech innovation.</p>
                         </CardContent>
                     </Card>
                     <Card>
