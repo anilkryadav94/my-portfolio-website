@@ -28,7 +28,7 @@ export default function About() {
                             <div className="flex items-center gap-4"><Heart className="h-5 w-5 text-primary" /> <span><b>Marital Status:</b> Married</span></div>
                             <div className="flex items-center gap-4"><Languages className="h-5 w-5 text-primary" /> <span><b>Languages:</b> English, Hindi</span></div>
                             <div className="flex items-center gap-4"><Flag className="h-5 w-5 text-primary" /> <span><b>Nationality:</b> Indian</span></div>
-                            <div className="flex items-center gap-4"><Puzzle className="h-5 w-5 text-primary" /> <span><b>Hobbies:</b> Cricket, Music, Coding</span></div>
+                            <div className="flex items-center gap-4"><Puzzle className="h-5 w-5 text-primary" /> <span><b>Hobbies:</b> Cricket, Music, Travelling</span></div>
                         </CardContent>
                     </Card>
                      <Card className="md:col-span-3">
