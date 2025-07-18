@@ -21,7 +21,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 max-w-screen-2xl items-center justify-between">
-        <a href="#" className="font-headline text-lg font-bold text-primary">
+        <a href="#" className="mr-4 font-headline text-lg font-bold text-primary">
           Anil's Portfolio
         </a>
         
@@ -34,7 +34,7 @@ export default function Header() {
               </a>
             </Button>
           ))}
-           <Button asChild>
+           <Button asChild className="ml-2">
               <a href="/Anil_Kumar_Resume.pdf" download>
                 <Download className="mr-2 h-4 w-4" />
                 Download Resume
