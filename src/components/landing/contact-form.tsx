@@ -9,7 +9,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Loader2 } from "lucide-react";
+import { Loader2, MessageSquareText } from "lucide-react";
+import { useState } from "react";
 
 const contactSchema = z.object({
     name: z.string().min(2, "Name must be at least 2 characters."),
@@ -21,19 +22,33 @@ type ContactFormInputs = z.infer<typeof contactSchema>;
 
 export default function ContactForm() {
     const { toast } = useToast();
-    const { register, handleSubmit, formState: { errors, isSubmitting }, reset } = useForm<ContactFormInputs>({
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const { register, handleSubmit, formState: { errors }, reset } = useForm<ContactFormInputs>({
         resolver: zodResolver(contactSchema)
     });
 
+    const myWhatsAppNumber = "7011553054";
+
     const onSubmit: SubmitHandler<ContactFormInputs> = async (data) => {
-        // Placeholder for submission logic
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        setIsSubmitting(true);
+        
+        const messageBody = `New message from your portfolio:\n\n*Name:* ${data.name}\n*Email:* ${data.email}\n\n*Message:*\n${data.message}`;
+        const encodedMessage = encodeURIComponent(messageBody);
+        const whatsappUrl = `https://wa.me/${myWhatsAppNumber}?text=${encodedMessage}`;
+
+        // Open WhatsApp in a new tab
+        window.open(whatsappUrl, '_blank');
+        
+        // Simulate a short delay to allow the new tab to open
+        await new Promise(resolve => setTimeout(resolve, 500));
 
         toast({
-            title: "Message Sent!",
-            description: "Thank you for reaching out. I will get back to you shortly.",
+            title: "Ready to Send!",
+            description: "Your message is ready in WhatsApp. Just press send!",
         });
+        
         reset();
+        setIsSubmitting(false);
     };
     
     return (
@@ -44,7 +59,7 @@ export default function ContactForm() {
                 <Card>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <CardHeader>
-                            <CardTitle>Send a Message</CardTitle>
+                            <CardTitle>Send a Message via WhatsApp</CardTitle>
                         </CardHeader>
                         <CardContent className="space-y-4">
                             <div className="space-y-2">
@@ -65,8 +80,8 @@ export default function ContactForm() {
                         </CardContent>
                         <CardFooter>
                             <Button type="submit" disabled={isSubmitting} className="bg-accent text-accent-foreground hover:bg-accent/90">
-                                {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                                {isSubmitting ? "Sending..." : "Send Message"}
+                                {isSubmitting ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <MessageSquareText className="mr-2 h-4 w-4" />}
+                                {isSubmitting ? "Redirecting..." : "Send via WhatsApp"}
                             </Button>
                         </CardFooter>
                     </form>
